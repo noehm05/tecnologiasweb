@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h3>Registro de Usuario</h3>
+
+    <label>Nombre:</label>
+    <input class="form-control" [(ngModel)]="usuario.nombre" type="text" name="nombre"/>
+
+    <label>Correo:</label>
+    <input class="form-control" [(ngModel)]="usuario.correo" type="email" name="correo"/>
+
+    <label>Edad:</label>
+    <input class="form-control" [(ngModel)]="usuario.edad" type="number" name="edad"/>
+
+    <br>
+
+    <button class="btn btn-success" (click)="registrar()">Registrar</button>
+
+    <button class="btn btn-info" 
+    [disabled]="!usuario.nombre || !usuario.correo">
+    Validar
+    </button>
+
+    <br><br>
+
+    <div class="text-bg-warning p-3" *ngIf="mensaje">
+        {{mensaje}}
+    </div>
+
+    <hr>
+
+    <p><b>Nombre:</b> {{usuario.nombre}}</p>
+    <p><b>Correo:</b> {{usuario.correo}}</p>
+    <p><b>Edad:</b> {{usuario.edad}}</p>
+
+    <app-negocios-componente></app-negocios-componente>
+</div>

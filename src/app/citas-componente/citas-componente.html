@@ -1,0 +1,92 @@
+<div class="contenedor-citas">
+
+  <div class="contenido">
+
+      <div class="card-box">
+      <h2 class="text-center mb-3">📅 Citas</h2>
+
+            <input list="listaPacientes" class="form-control mb-2"
+      [(ngModel)]="paciente" placeholder="Paciente">
+
+      <datalist id="listaPacientes">
+        <option *ngFor="let p of pacientes" [value]="p.nombre"></option>
+      </datalist>
+
+            <input list="listaDoctores" class="form-control mb-2"
+      [(ngModel)]="doctor"
+      (ngModelChange)="seleccionarDoctor()"
+      placeholder="Doctor">
+
+      <datalist id="listaDoctores">
+        <option *ngFor="let d of doctores" [value]="d.nombre"></option>
+      </datalist>
+
+           <input class="form-control mb-2"
+      [(ngModel)]="especialidad"
+      placeholder="Especialidad"
+      readonly>
+
+     
+      <input class="form-control mb-2"
+      [(ngModel)]="fecha"
+      type="date">
+
+      
+      <input class="form-control mb-3"
+      [(ngModel)]="sala"
+      placeholder="Sala">
+
+    
+      <div class="text-center">
+        <button class="btn btn-success me-2"
+        *ngIf="!editando"
+        (click)="agregar()">
+          Agregar
+        </button>
+
+        <button class="btn btn-warning me-2"
+        *ngIf="editando"
+        (click)="actualizar()">
+          Actualizar
+        </button>
+
+        <button class="btn btn-info"
+        (click)="toggleLista()">
+          Lista de Citas
+        </button>
+      </div>
+    </div>
+
+   
+    <div class="card-box mt-3" *ngIf="mostrarLista">
+
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let c of listaCitas; let i = index">
+
+          <div>
+            👤 <strong>{{c.paciente}}</strong><br>
+            👨‍⚕️ {{c.doctor}} ({{c.especialidad}})<br>
+            📅 {{c.fecha}} | 🏥 Sala {{c.sala}}
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm"
+            (click)="editar(c, i)">
+              ✏️
+            </button>
+
+            <button class="btn btn-danger btn-sm"
+            (click)="eliminar(c.id)">
+              🗑️
+            </button>
+          </div>
+
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>

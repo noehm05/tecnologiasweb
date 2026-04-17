@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contenedor-citas {
+  width: 100%;
+  display: flex;
+  justify-content: center !important;
+}
+
+.contenido {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto; 
+}
+
+.card-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}

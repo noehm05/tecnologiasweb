@@ -1,0 +1,64 @@
+<div class="contenedor">
+
+  <div class="card-box">
+
+    <h3 class="text-center mb-3">Pacientes</h3>
+
+    <input class="form-control mb-2"
+      [(ngModel)]="nombre"
+      placeholder="Nombre completo">
+
+    <input class="form-control mb-3"
+      [(ngModel)]="edad"
+      type="number"
+      placeholder="Edad">
+
+    <div class="text-center">
+      <button class="btn btn-success me-2"
+        *ngIf="!editando"
+        (click)="agregar()">
+        Agregar
+      </button>
+
+      <button class="btn btn-warning me-2"
+        *ngIf="editando"
+        (click)="actualizar()">
+        Actualizar
+      </button>
+
+      <button class="btn btn-info"
+        (click)="toggleLista()">
+        Lista de Pacientes
+      </button>
+    </div>
+
+  </div>
+
+  <div class="card-box mt-4" *ngIf="mostrarLista">
+
+    <h4 class="text-center mb-3">Lista de Pacientes</h4>
+
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let p of listaPacientes; let i = index">
+
+        <span>👤 {{p.nombre}} - {{p.edad}} años</span>
+
+        <div>
+          <button class="btn btn-primary btn-sm me-2"
+            (click)="editar(p, i)">
+            ✏️
+          </button>
+
+          <button class="btn btn-danger btn-sm"
+            (click)="eliminar(p.id, i)">
+            🗑️
+          </button>
+        </div>
+
+      </li>
+    </ul>
+
+  </div>
+
+</div>

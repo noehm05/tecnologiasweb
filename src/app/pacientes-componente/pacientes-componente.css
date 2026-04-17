@@ -1,0 +1,25 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.card-formulario {
+  width: 350px;
+  background: #a8dadc;
+  padding: 20px;
+  border-radius: 20px;
+  border: 3px solid black;
+  text-align: center;
+}
+
+
+.titulo-card {
+  background: #f4c095;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
